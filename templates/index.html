@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnero SiGeS</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1, h2 {
+            align-self: flex-start;
+            margin-left: 20px; /* Adjust the margin as needed */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This assistant will help you create a date</h1>
+    <h2>Feel free to upload your requirements</h2>
+
+    <p>{{ response }}</p>
+    <form method="post" action="/">
+        <input type="hidden" name="current_state" value="{{ current_state }}">
+        {% for option in options %}
+            <button type="submit" name="user_input" value="{{ option }}">{{ option }}</button>
+        {% endfor %}
+    </form>
+</body>
+</html>
